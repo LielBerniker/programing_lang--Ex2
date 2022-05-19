@@ -30,23 +30,64 @@ question 1
    console other people:
    we did not need to console others for this question
 |#
+
 #|
 1.
 The LE grammer
 
-  <LE> ::= | <LST> 1
-           | { cons <GA> <LE> } 2
-           | { append <LE> } 3
-           | <id> 4
+  <LE> ::= | <GA> 1
+           | { cons <GA> <LST> } 2
+           | { append <GA> } 3
+           | { list <LE> } 4
 
-  <LST> ::= |  <list> 1
-           | {<LST> <LST>} 2
-           | {<Listof<LST>>} 2
-           | { null } 5
-           | <id> 6
+{ cons <A> list <B> }
+
+  <LST> ::= 
+            | { null } 5
+            | { cons <GA> <LST> } 2
+            | { append <LST> } 3
+            | { list <GA> } 3
 
   <GA> ::= | <num> 1
+           | { <GA> <num> }
+           | { null } 5
            | <LST>
+           | <sym>
+
+
+
+
+
+
+
+  <LE> ::= | <WORD>
+           | { cons <ConsArg>} 2
+           | { append <LST> (...) } 3
+           | { list <ListArg> (...) } 4
+
+  <WORD> ::= | <num>
+           | '<sym>
+           | { null }
+
+  <WORDS> ::= | <WORD>
+              | {<WORDS> <WORD>}
+
+  <ConsArg> ::= | { <WORD> <LST>}
+                | { <LST> <LST>}
+
+  <ListArg> ::= | <WORDS>
+                | <LST>
+
+  <LST> ::=       | { list <LST> (...) }
+                  | { list <WORDS> (...) }
+                  | { cons <ConsArg>} 2
+                  | { append <AppendArg> }
+                  | {null}
+
+
+
+
+
 
 
 
