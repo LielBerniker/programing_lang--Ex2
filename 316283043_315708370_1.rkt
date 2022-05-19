@@ -33,33 +33,6 @@ question 1
 
 #|
 1.
-The LE grammer
-
-  <LE> ::= | <GA> 1
-           | { cons <GA> <LST> } 2
-           | { append <GA> } 3
-           | { list <LE> } 4
-
-{ cons <A> list <B> }
-
-  <LST> ::= 
-            | { null } 5
-            | { cons <GA> <LST> } 2
-            | { append <LST> } 3
-            | { list <GA> } 3
-
-  <GA> ::= | <num> 1
-           | { <GA> <num> }
-           | { null } 5
-           | <LST>
-           | <sym>
-
-
-
-
-
-
-
   <LE> ::= | <WORD>
            | { cons <ConsArg>} 2
            | { append <LST> (...) } 3
@@ -83,15 +56,6 @@ The LE grammer
                   | { cons <ConsArg>} 2
                   | { append <AppendArg> }
                   | {null}
-
-
-
-
-
-
-
-
-Where <id> refers to any valid symbol in Racket, and <num> colud be any Number in Racket.
 |#
 
 
